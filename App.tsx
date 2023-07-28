@@ -14,10 +14,13 @@ import {
   useColorScheme,
   View,
   Image,
-  FlatList,
+  ScrollView,
 } from 'react-native';
-import {PLATFORM_LOGO, PLAYER_01} from './src/assests/images';
+import {PLATFORM_LOGO, PLAYER_01, PLAYER_02} from './src/assests/images';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {PlayerTemplate} from './src/screens/PlayerTemplate';
+import {WelcomeButtons} from './src/screens/WelcomeButtons';
+import PlayerList from './src/screens/PlayerList';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -58,19 +61,32 @@ function App(): JSX.Element {
   const playerInfo = [
     {
       player_no: 1,
+      name: 'Shashidhara Challamarada',
+      role: 'All Rounder',
+      bt_style: 'Right Hand Bat',
+      bl_style: 'Right Arm medium Fast',
+      pl_img: PLAYER_02,
+      pl_price: 20000,
+    },
+    {
+      player_no: 2,
       name: 'Ganesh Benny',
       role: 'All Rounder',
       bt_style: 'Right Hand Bat',
       bl_style: 'Right Arm Fast',
+      pl_img: PLAYER_01,
+      pl_price: 2000,
     },
   ];
+
   const _renderPlatformInfo = () => {
     return (
-      <View style={{alignItems: 'center'}}>
+      <View style={{alignItems: 'center', marginTop: 6}}>
         <View>
           <Image
             source={PLATFORM_LOGO}
-            style={{height: 180, width: 180, borderRadius: 10, margin: 10}}
+            resizeMode={'contain'}
+            style={{height: 150, width: 150, borderRadius: 10, margin: 10}}
           />
         </View>
         <View>
@@ -107,124 +123,19 @@ function App(): JSX.Element {
       </View>
     );
   };
-  const _renderPlayerImage = () => {
-    return (
-      <View
-        style={{
-          marginTop: 20,
-          alignItems: 'center',
-          flexDirection: 'row',
-        }}>
-        <View>
-          <Image
-            source={PLAYER_01}
-            resizeMode="stretch"
-            style={{
-              height: 150,
-              width: 150,
-              borderRadius: 10,
-              margin: 30,
-              borderColor: 'black',
-              borderWidth: 2,
-            }}
-          />
-        </View>
-        <View
-          style={{
-            height: 60,
-            width: 160,
-            backgroundColor: '#14226b',
-            justifyContent: 'center',
-            borderRadius: 8,
-          }}>
-          <Text
-            style={{
-              fontSize: 24,
-              fontWeight: 'bold',
-              textAlign: 'center',
-              color: '#ffffff',
-            }}>
-            Base Price 1000₹
-          </Text>
-        </View>
-      </View>
-    );
-  };
-  const _renderItem = ({item}: any) => {
-    return (
-      <View
-        style={{
-          marginHorizontal: 25,
-          flexDirection: 'column',
-        }}>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: 'bold',
-            color: '#000',
-            margin: 6,
-          }}>
-          {`Player No: ${item?.player_no}`}
-        </Text>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: 'bold',
-            color: '#000',
-            margin: 6,
-          }}>
-          {`Player Name: ${item?.name}`}
-        </Text>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: 'bold',
-            color: '#000',
-            margin: 6,
-          }}>
-          {`Player Role: ${item?.role}`}
-        </Text>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: 'bold',
-            color: '#000',
-            margin: 6,
-          }}>
-          {`Batting Style: ${item?.bt_style}`}
-        </Text>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: 'bold',
-            color: '#000',
-            margin: 6,
-          }}>
-          {`Bowling Style: ${item?.bl_style}`}
-        </Text>
-      </View>
-    );
-  };
-  const _renderPlayerInfo = () => {
-    return (
-      <FlatList
-        data={playerInfo}
-        // keyExtractor={item => item.id}
-        showsHorizontalScrollIndicator={false}
-        renderItem={_renderItem}
-      />
-    );
-  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+
       <View style={{backgroundColor: '#ECF8F9', height: '100%'}}>
         {_renderPlatformInfo()}
-        {_renderPlayerImage()}
-        {_renderPlayerInfo()}
+        <ScrollView>
+          <PlayerTemplate playerInfo={playerInfo} />
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
