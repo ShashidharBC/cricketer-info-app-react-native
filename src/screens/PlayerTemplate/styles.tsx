@@ -13,6 +13,10 @@ export interface Style {
   textStyle: TextStyle;
   plInfoTextStyle: TextStyle;
   soldAndUnsoldBtnStyle: ViewStyle;
+  soldUnsoldBtnStyle: TextStyle;
+  horizontalLineStyle: ViewStyle;
+  teamNameTextStyle: TextStyle;
+  saveCancelBtnTextStyle: TextStyle;
 }
 
 export default StyleSheet.create<Style>({
@@ -60,4 +64,19 @@ export default StyleSheet.create<Style>({
     justifyContent: 'center',
     backgroundColor: '#14226b',
   },
+  soldUnsoldBtnStyle: {color: '#fff', fontSize: 24, fontWeight: 'bold'},
+  horizontalLineStyle: {
+    height: 1,
+    width: '100%',
+    backgroundColor: '#14226b',
+    margin: 10,
+  },
+  teamNameTextStyle: {
+    fontSize: 18,
+    marginTop: 20,
+    marginLeft: 20,
+    fontWeight: 'bold',
+    color: '#14226b',
+  },
+  saveCancelBtnTextStyle: {color: '#fff', fontSize: 24, fontWeight: 'bold'},
 });

@@ -64,27 +64,16 @@ export const PlayerTemplate = ({playerInfo}: PlayerTemplateProps) => {
             style={styles.soldAndUnsoldBtnStyle}
             activeOpacity={0.7}
             onPress={() => handleSold(item?.name)}>
-            <Text style={{color: '#fff', fontSize: 24, fontWeight: 'bold'}}>
-              Sold
-            </Text>
+            <Text style={styles.soldUnsoldBtnStyle}>Sold</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.soldAndUnsoldBtnStyle}
             activeOpacity={0.7}
             onPress={() => console.log('Item name is: ', item?.name)}>
-            <Text style={{color: '#fff', fontSize: 24, fontWeight: 'bold'}}>
-              UnSold
-            </Text>
+            <Text style={styles.soldUnsoldBtnStyle}>UnSold</Text>
           </TouchableOpacity>
         </View>
-        <View
-          style={{
-            height: 1,
-            width: '100%',
-            backgroundColor: '#14226b',
-            margin: 10,
-          }}
-        />
+        <View style={styles.horizontalLineStyle} />
       </View>
     );
   };
@@ -99,39 +88,28 @@ export const PlayerTemplate = ({playerInfo}: PlayerTemplateProps) => {
         />
         <Modal
           visible={modalVisible}
-          animationType="slide"
+          animationType={'slide'}
           onRequestClose={() => setModalVisible(false)}>
           <View>
-            <Text
-              style={{
-                fontSize: 18,
-                marginTop: 20,
-                marginLeft: 20,
-                fontWeight: 'bold',
-                color: '#14226b',
-              }}>
-              Enter the team name:
-            </Text>
+            <Text style={styles.teamNameTextStyle}>Enter the team name:</Text>
             <TextInput
               // value={teamNameInput}
               onChangeText={text => setTeamNameInput(text)}
+              placeholder={'Please type here..'}
+              style={{marginLeft: 20}}
             />
             <View style={{flexDirection: 'row'}}>
               <TouchableOpacity
                 style={styles.soldAndUnsoldBtnStyle}
                 activeOpacity={0.7}
                 onPress={() => console.log('ITEM IS SAVED...')}>
-                <Text style={{color: '#fff', fontSize: 24, fontWeight: 'bold'}}>
-                  Save
-                </Text>
+                <Text style={styles.saveCancelBtnTextStyle}>Save</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.soldAndUnsoldBtnStyle}
                 activeOpacity={0.7}
                 onPress={() => setModalVisible(false)}>
-                <Text style={{color: '#fff', fontSize: 24, fontWeight: 'bold'}}>
-                  Cancel
-                </Text>
+                <Text style={styles.saveCancelBtnTextStyle}>Cancel</Text>
               </TouchableOpacity>
             </View>
           </View>
