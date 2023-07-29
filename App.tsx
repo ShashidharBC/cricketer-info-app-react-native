@@ -21,6 +21,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {PlayerTemplate} from './src/screens/PlayerTemplate';
 import {WelcomeButtons} from './src/screens/WelcomeButtons';
 import PlayerList from './src/screens/PlayerList';
+import {FloatingActionComp} from './src/screens/FloatingActionComp';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -76,6 +77,26 @@ function App(): JSX.Element {
       bl_style: 'Right Arm Fast',
       pl_img: PLAYER_01,
       pl_price: 2000,
+    },
+  ];
+  const actions = [
+    {
+      text: 'Sold Players',
+      name: 'pl_sold',
+      position: 2,
+      color: '#14226b',
+    },
+    {
+      text: 'All Teams',
+      name: 'pl_teams',
+      position: 1,
+      color: '#14226b',
+    },
+    {
+      text: 'Unsold Players',
+      name: 'pl_unsold',
+      position: 3,
+      color: '#14226b',
     },
   ];
 
@@ -136,6 +157,7 @@ function App(): JSX.Element {
         <ScrollView>
           <PlayerTemplate playerInfo={playerInfo} />
         </ScrollView>
+        <FloatingActionComp actions={actions} />
       </View>
     </SafeAreaView>
   );
