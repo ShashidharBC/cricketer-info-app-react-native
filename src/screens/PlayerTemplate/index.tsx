@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   TextInput,
   Modal,
-  Button,
 } from 'react-native';
 import styles from './styles';
 
@@ -24,6 +23,7 @@ export const PlayerTemplate = ({playerInfo}: PlayerTemplateProps) => {
     setSelectedPlayer(playerName);
     setModalVisible(true);
   };
+
   const _renderItem = ({item}: any) => {
     return (
       <View style={styles.containerStyle}>

@@ -4,9 +4,13 @@ import {FloatingAction} from 'react-native-floating-action';
 
 export interface FloatingActionCompProps {
   actions?: any;
+  onPressItem?: (name: any) => void;
 }
 
-export const FloatingActionComp = ({actions}: FloatingActionCompProps) => {
+export const FloatingActionComp = ({
+  actions,
+  onPressItem,
+}: FloatingActionCompProps) => {
   return (
     <View>
       <FloatingAction
@@ -14,7 +18,7 @@ export const FloatingActionComp = ({actions}: FloatingActionCompProps) => {
         color={'#14226b'}
         buttonSize={65}
         onPressItem={name => {
-          console.log(`selected button: ${name}`);
+          onPressItem && onPressItem(name);
         }}
       />
     </View>

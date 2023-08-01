@@ -39,7 +39,7 @@ export default StyleSheet.create<Style>({
   textContainerStyle: {
     height: 40,
     width: 160,
-    backgroundColor: '#8EAC50',
+    backgroundColor: '#14226b',
     justifyContent: 'center',
     borderRadius: 8,
   },

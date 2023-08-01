@@ -2,11 +2,9 @@ import React from 'react';
 import {View, FlatList, TouchableOpacity, Text} from 'react-native';
 import styles from './styles';
 
-export interface WelcomeButtonsProps {
-  playerInfo?: any;
-}
+export interface WelcomeButtonsProps {}
 
-export const WelcomeButtons = ({playerInfo}: WelcomeButtonsProps) => {
+export const WelcomeButtons = ({}: WelcomeButtonsProps) => {
   const _renderSoldPlayersButton = () => {
     return (
       <View>
